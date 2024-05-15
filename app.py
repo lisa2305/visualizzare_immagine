@@ -7,7 +7,10 @@ import io
 from PIL import Image, ImageFilter
 from pyodide.ffi import create_proxy
 from pyweb import pydom
+import dlib
+from PIL import Image, ImageDraw
         
+#funzione che permette l'elimnazione della foto originale 
 def clear(event):
     toEliminate = document.getElementById("blank")
     toEliminate.removeChild(toEliminate.firstElementChild)
@@ -69,6 +72,7 @@ async def _upload_change_and_show(e):
     new_image.src = window.URL.createObjectURL(image_file)
     document.getElementById("output_upload_pillow").appendChild(new_image)
 
+    
 
 # Run image processing code above whenever file is uploaded    
 upload_file = create_proxy(_upload_change_and_show)
